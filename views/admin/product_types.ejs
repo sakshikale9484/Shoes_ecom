@@ -1,0 +1,90 @@
+<%- include('navbar.ejs') %>
+
+<div class="main-content">
+    <div class="container">
+
+        <!-- Add type Form -->
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1 class="mb-3">Add New type</h1>
+
+                <form action="/admin/save_product_type" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">type Name</label>
+                        <input type="text" class="form-control" name="product_type_name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">type Image</label>
+                        <input type="file" class="form-control" name="product_type_image">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Save type
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- types Table -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-3">All types</h1>
+
+                <% if (types && types.length > 0) { %>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>type Name</th>
+                                    <th>type Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (var i = 0; i < types.length; i++) { %>
+                                    <tr>
+                                        <td><%= i + 1 %></td>
+                                        <td><%= types[i].product_type_name %></td>
+                                        <td>
+  <% if (types[i].product_type_image) { %>
+    <img 
+      src="/types/<%= types[i].product_type_image %>" 
+      width="80"
+      type="border-radius:5px;"
+    >
+  <% } else { %>
+    No Image
+  <% } %>
+</td>
+
+                                        <td>
+                                            <a 
+                                                href="/admin/edit_product_type/<%= types[i].product_type_id %>" 
+                                                class="btn btn-sm btn-primary">
+                                                Edit
+                                            </a>
+                                            <a 
+                                                href="/admin/delete_product_type/<%= types[i].product_type_id %>" 
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Are you sure?')">
+                                                Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% } else { %>
+                    <p class="text-muted">No types found.</p>
+                <% } %>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include('footer.ejs') %>

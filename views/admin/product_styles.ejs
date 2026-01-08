@@ -1,0 +1,90 @@
+<%- include('navbar.ejs') %>
+
+<div class="main-content">
+    <div class="container">
+
+        <!-- Add Style Form -->
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1 class="mb-3">Add New Style</h1>
+
+                <form action="/admin/save_product_style" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Style Name</label>
+                        <input type="text" class="form-control" name="product_style_name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Style Image</label>
+                        <input type="file" class="form-control" name="product_style_image">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Save Style
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Styles Table -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-3">All Styles</h1>
+
+                <% if (styles && styles.length > 0) { %>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>Style Name</th>
+                                    <th>Style Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (var i = 0; i < styles.length; i++) { %>
+                                    <tr>
+                                        <td><%= i + 1 %></td>
+                                        <td><%= styles[i].product_style_name %></td>
+                                        <td>
+  <% if (styles[i].product_style_image) { %>
+    <img 
+      src="/styles/<%= styles[i].product_style_image %>" 
+      width="80"
+      style="border-radius:5px;"
+    >
+  <% } else { %>
+    No Image
+  <% } %>
+</td>
+
+                                        <td>
+                                            <a 
+                                                href="/admin/edit_product_style/<%= styles[i].product_style_id %>" 
+                                                class="btn btn-sm btn-primary">
+                                                Edit
+                                            </a>
+                                            <a 
+                                                href="/admin/delete_product_style/<%= styles[i].product_style_id %>" 
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Are you sure?')">
+                                                Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% } else { %>
+                    <p class="text-muted">No styles found.</p>
+                <% } %>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include('footer.ejs') %>

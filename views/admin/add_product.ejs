@@ -1,0 +1,106 @@
+<%- include('navbar.ejs') %>
+
+<div class="main-content">
+<div class="container">
+ <div class="row">
+    <div class="col-md-12">
+        <h1> Add Product</h1>
+        <form action="/admin/save_product_brand" method="post">
+            <div class="form-group">
+                <label> Product Name</label>
+                <input type="text" class="form-control"  name="product_name">
+
+                <label>Product Market price</label>
+                <input type="text" class="form-control"  name="product_market_price">
+
+                 <label>Apply Product Discount (%)</label>
+                <input type="text" class="form-control"  name="Apply_product_discount">
+
+                 <label> Product Main Image</label>
+                <input type="text" class="form-control"  name="product_main_image">
+
+                 <label> Product Is Trending</label>
+                 <select name="product_is_trending" class="form-control">
+                    <option>No</option>
+                    <option>Yes</option>
+                 </select>
+
+                  <label> Product Brand</label>
+                 <select name="product_is_trending" class="form-control">
+                    <option>No</option>
+                    <option>Yes</option>
+                 </select>
+
+                  <label> Product Style</label>
+                 <select name="product_style_id" class="form-control">
+                    <option>No</option>
+                    <option>Yes</option>
+                 </select>
+
+                  <label> Product For</label>
+                 <select name="product_for" class="form-control">
+                    <option>Male</option>
+                    <option>Fmale</option>
+                    <option>Kids</option>
+                 </select>
+
+                  <label class="disable"> kid Type</label>
+                 <select name="product_for" class="form-control">
+                    <option>Both</option>
+                    <option>Girls</option>
+                    <option>Boys</option>
+                 </select>
+
+                 
+                  <label class="disable"> kid Type</label>
+                 <select name="product_for" class="form-control">
+                    <option>Both</option>
+                    <option>Girls</option>
+                    <option>Boys</option>
+                 </select>
+
+                <label>Available Stock</label>
+                <input type="text" class="form-control"  name="product_stock">
+
+                 <label> product color</label>
+                <input type="text" class="form-control"  name="product_color">
+
+                 <label> product Discription</label>
+                <input type="text" class="form-control"  name="product_decription" id="product_description">
+
+            </div>
+            <button type="submit" class="btn btn-primary">Save product</button>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+<%- include('footer.ejs') %>
+
+
+
+
+<!-- products
+ -> product_id
+ -> product_name
+ -> product_price
+ -> product_decription
+ -> apply_discount_percent
+ -> product_main_image
+ -> product_image1
+ -> product_image2
+ -> product_image3
+ -> product_rating
+ -> product_is_trending
+ -> product_brand
+ -> product_style
+ -> product_For(male/female/kids)
+ -> product_kid_type(boys/girls)
+ -> product_sport_type
+ -> offer_expiry_date
+ -> product_added_date
+ -> product_stock
+ -> product_color
+ -> status (activ) 
+ 
+-->
