@@ -18,10 +18,11 @@
   "devDependencies": {}
 }
 
- {
+{
   "scripts": {
     "start": "node index.js"
   },
   "author": "sakshi"
 }
+
 
