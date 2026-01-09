@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     "host":"b10vi40d6cfzel2sdms6-mysql.services.clever-cloud.com",
     "user":"ucmogcus2lyysuyb",
     "password":"EdkjgZNzvBkL0pXmpM1i",
-    "database":"b10vi40d6cfzel2sdms6i"
+    "database":"b10vi40d6cfzel2sdms6"
 });
 var exe = util.promisify(connection.query).bind(connection);
 
