@@ -1,4 +1,12 @@
 {
+  "name": "shoes_ecom",
+  "version": "1.0.0",
+  "description": "shoes eccomers",
+  "main": "index.js",
+  "author": "sakshi",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.2.1",
@@ -7,11 +15,9 @@
     "init": "^0.1.2",
     "mysql": "^2.18.1"
   },
-  "name": "shoes_ecom",
-  "version": "1.0.0",
-  "description": "shoes eccomers",
-  "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {}
+}
+
  {
   "scripts": {
     "start": "node index.js"
